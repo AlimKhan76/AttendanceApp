@@ -39,7 +39,13 @@ public class LoginController {
 	// Used for the button in the Register page to redirect to the login page
 	@RequestMapping("login")
 	public String LoginPage() {
-		return "index";
+		return "Login-form";
+	}
+	
+	//Used for redirecting to logout page
+	@RequestMapping("logOutRedirect")
+	public String LogOutForm() {
+		return "Logout-form";
 	}
 
 	/*
@@ -106,13 +112,28 @@ public class LoginController {
 	/*
 	 * Handles the logout logic of the project
 	 */
-	@RequestMapping(value = "logOut", method = RequestMethod.POST)
-	public String logOut(@ModelAttribute Record record, Model m, @RequestParam String name) {
+	@RequestMapping(value="logOut", method = RequestMethod.POST)
+	public String logOut(@ModelAttribute Record record, Model m, @RequestParam String uname,
+							@RequestParam String password) {
+		
+		List<Employee_Details> list = userRepository.findByUnameAndPassword(uname, password);
+		/**
+		 * If the list is empty means there is no user with the uname and password
+		 * provided and a NoResultException is thrown and handled by the
+		 * MyExceptionHandler Class
+		 **/
+
+		if (list.isEmpty()) {
+			// throws Exception
+			throw new NoResultException();
+		} else {
+
+		
 		// Explicitly setting the status to logged out
 		record.setStatus("Logged Out");
 		// Explicitly setting the uname received through the hidden input field in
 		// login-page
-		record.setUname(name);
+		record.setUname(uname);
 		// Saving the data to the database
 		recordRepository.save(record);
 		System.out.println("Logged out successfully");
@@ -122,11 +143,11 @@ public class LoginController {
 		 * Sending the logout date, time, status, name to the view through Model for the
 		 * user to view his current logout date and time and status along with the name.
 		 */
-
 		m.addAttribute("Date", date);
 		m.addAttribute("status", "Logged Out");
-		m.addAttribute("Name", name);
+		m.addAttribute("Name", uname);
 		return "LogOut-page";
+	}
 	}
 
 	/*

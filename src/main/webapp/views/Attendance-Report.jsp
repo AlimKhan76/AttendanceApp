@@ -40,6 +40,9 @@
 
 					</tbody>
 				</table>
+				<div class"container text-center">
+				<a href="/" class="btn btn-lg btn-outline-danger ">Return to Home Page</a>
+				</div>
 			</div>
 
 		</div>

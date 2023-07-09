@@ -14,35 +14,25 @@
 </head>
 <body>
 
-	<div class=" col-md-6 offset-md-3">
+<div class=" my-5 row h-100 align-items-center ">
 
-		<h1 class="text-center mb-3">Login Page</h1>
-		<div class="alert alert-success" role="alert">
-			<c:out value="${success }" />
-		</div>
-		<div class="alert alert-danger" role="alert">
-			<c:out value="${exception }" />
-		</div>
+			<div class="text-center col-12 align-items-center justify-content-center  " >
+		<h1 class=" my-3">Home Page</h1>
 
-		<form action="log" method="post">
-			<div class="form-group ">
-				<label for="uname">Username</label> <input type="text"
-					class="form-control" id="uname" name="uname"
-					aria-describedby="emailHelp" placeholder="Enter Username">
+			<h3>Would You Like to ?</h3>		
+			
+							<a href="login" class="btn btn-lg btn-success">Log In</a>
+							<a href="logOutRedirect" class="btn btn-lg btn-danger">Log Out</a>
+							<div class="container text-center pt-3">
+							<a href="reg-page" class="btn  btn-lg btn-primary">Register</a>
+							</div>
 			</div>
-
-			<div class="form-group">
-				<label for="password">Password</label> <input type="password"
-					class="form-control" id="password" name="password"
-					placeholder="Password">
+			
+			
 			</div>
+		
 
-			<div class="container text-center">
-				<button type="submit" class="btn btn-primary">Login</button>
-				<a href="reg-page" class="btn btn-outline-danger">Register</a>
-			</div>
 
-		</form>
-	</div>
+	
 </body>
 </html>

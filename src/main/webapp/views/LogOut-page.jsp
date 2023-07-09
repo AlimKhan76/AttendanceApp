@@ -40,8 +40,14 @@
 <br><br>
 <div class="container text-center">
 	<a href="login" >
-      	<button type="button" class="btn btn-success">Log in</button>
+      	<button type="button" class="btn btn-lg btn-success">Log in</button>
       	</a>
+      	<br>
+      	<br>
+      <form action="report" method="post">
+      <input type="hidden" name="name" id="name" value="${Name }" class="d-none">
+      <button type="submit" class="btn btn-lg btn-info">View Attendance</button>
+      </form>
       </div>
 		
 </div>

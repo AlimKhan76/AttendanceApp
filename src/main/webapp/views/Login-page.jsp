@@ -37,15 +37,12 @@
 </table>
 <br><br>
 <div class="container text-center">
-<form action="logOut" method="post">
-      <input type="hidden" name="name" id="name" value="${Name }" class="d-none">
-      <button type="submit" class="btn btn-danger">Log Out</button>
-      </form>
-	
+<a href="logOutRedirect" class="btn btn-lg btn-danger">Log Out </a>
+	<br>
 	<br>
      <form action="report" method="post">
       <input type="hidden" name="name" id="name" value="${Name }" class="d-none">
-      <button type="submit" class="btn btn-info">View Attendance</button>
+      <button type="submit" class="btn btn-lg btn-info">View Attendance</button>
       </form>
 </div>
 </div>
