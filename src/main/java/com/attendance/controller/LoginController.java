@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.attendance.model.Employee_Details;
 import com.attendance.model.Record;
 import jakarta.persistence.NoResultException;
+import jakarta.persistence.NonUniqueResultException;
+
 import com.attendance.dao.RecordRepository;
 import com.attendance.dao.UserRepository;
 
@@ -125,7 +127,7 @@ public class LoginController {
 
 		if (list.isEmpty()) {
 			// throws Exception
-			throw new NoResultException();
+			throw new NonUniqueResultException();
 		} else {
 
 		
