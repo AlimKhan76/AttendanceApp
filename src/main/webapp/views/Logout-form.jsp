@@ -38,12 +38,14 @@
 			</div>
 
 			<div class="container text-center">
-				<button type="submit" class="btn btn-lg btn-danger">LogOut</button>				
-				
-				<a href="login" class="btn btn-lg btn-success">Log In</a>
+				<button type="submit" class="btn btn-lg btn-danger">Log Out</button>
+<!-- 				<a href="reg-page" class="btn btn-lg btn-primary">Register</a>
+ -->
+
 			</div>
 			<div class="container text-center pt-3">
-				<a href="reg-page" class="btn btn-lg btn-outline-primary">Register</a>
+				<a href="/" class="btn btn-lg btn-secondary">Return Home</a>
+
 			</div>
 
 		</form>

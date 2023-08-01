@@ -58,11 +58,15 @@
 
 			<div class="container text-center">
 				<!-- Redirects to Login page -->
-				<a href="login" class="btn btn-outline-danger">Login</a>
-
-				<button type="submit" class="btn btn-primary">Register</button>
+<!-- 				<a href="login" class="btn btn-lg btn-success">Login</a>
+ -->
+				<button type="submit" class="btn btn-lg btn-primary">Register</button>
 
 			</div>
+			<div class="container text-center pt-3">
+				<a href="/" class="btn btn-lg btn-secondary">Return Home</a>
+			</div>
+			
 		</form>
 	</div>
 </body>
