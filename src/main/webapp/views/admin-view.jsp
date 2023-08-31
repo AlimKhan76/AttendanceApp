@@ -38,12 +38,12 @@
 									<!-- Form used with a hidden field to 
 									get the uname of the user of whose attendance
 									 will be viewed -->
-									<form action="report" method="post">
-										<input type="hidden" name="name" id="name" value="${p.uname }"
-											class="d-none">
-										<button type="submit" class="btn btn-info">View
+									
+											<a href="report/${p.uname}/0">
+										<button class="btn btn-info">View
 											Attendance</button>
-									</form>
+											</a>
+									
 
 								</td>
 							</tr>

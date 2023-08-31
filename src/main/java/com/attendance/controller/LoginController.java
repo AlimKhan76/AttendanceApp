@@ -1,11 +1,16 @@
 package com.attendance.controller;
 
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -157,13 +162,17 @@ public class LoginController {
 	 * can be used by the user logged in to view his Attendance Or by the admin to
 	 * view the Attendance of any specific employee.
 	 */
-	@RequestMapping(value = "report", method = RequestMethod.POST)
-	public String ReportofUser(@RequestParam String name, Model m) {
-		System.out.println("Running of Report");
+	@RequestMapping(value = "report/{name}/{page}", method = RequestMethod.GET)
+	public String ReportofUser(@PathVariable int page, @PathVariable String name, Model m) {
 		// Finding all the record in the name of the user provided
-		List<Record> list = recordRepository.findByUname(name);
+		Pageable pageable=PageRequest.of(page,12);
+		Page<Record> datalist = recordRepository.findByUnameOrderByLogdateDesc(name, pageable);
+		List<Record> list=datalist.getContent();
 		// Sending the record to the view through Model
 		m.addAttribute("list", list);
+		m.addAttribute("currentPage", page);
+		m.addAttribute("totalPages", datalist.getTotalPages());
+		
 		m.addAttribute("Name", name);
 		return "Attendance-Report";
 	}

@@ -44,10 +44,10 @@
       	</a>
       	<br>
       	<br>
-      <form action="report" method="post">
-      <input type="hidden" name="name" id="name" value="${Name }" class="d-none">
-      <button type="submit" class="btn btn-lg btn-info">View Attendance</button>
-      </form>
+      	<a href="/report/${Name}/0">
+      <button class="btn btn-lg btn-info">View Attendance</button>
+      	</a>
+
       </div>
 		
 </div>
