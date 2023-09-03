@@ -41,24 +41,77 @@
 				</table>
 
 				<div class="container my-5 align-items-center text-center">
-					<nav  aria-label="Page navigation example">
+					<nav aria-label="Page navigation example">
 						<ul class="pagination pagination-lg justify-content-center">
 
 							<c:if test="${currentPage-1 != -1}">
 								<li class="page-item"><a class="page-link"
-									href="/report/${Name }/${currentPage-1}"><span>&laquo;</span>Previous</a></li>
+									href="/report/${Name }/${0}"><span>&laquo;&laquo;&laquo;</span></a></li>
 
 							</c:if>
-							
-								
-							
-							
-							
+
+							<c:if
+								test="${(totalPages >5 && totalPages>currentPage+2) && currentPage>1}">
+
+								<c:forEach var="i" begin="${currentPage-1}"
+									end="${currentPage+3}">
+									<c:if test="${currentPage==i-1}">
+										<li class="page-item active" aria-current="page"><a
+											class="page-link" href="/report/${Name }/${i-1}">${i}</a></li>
+									</c:if>
+									<c:if test="${currentPage!=i-1}">
+										<li class="page-item"><a class="page-link"
+											href="/report/${Name }/${i-1}">${i}</a></li>
+									</c:if>
+								</c:forEach>
+							</c:if>
+							<c:if
+								test="${(totalPages >5 && totalPages<=currentPage+2) && currentPage>1}">
+								<c:forEach var="i" begin="${totalPages-4}" end="${totalPages}">
+									<c:if test="${currentPage==i-1}">
+										<li class="page-item active" aria-current="page"><a
+											class="page-link" href="/report/${Name }/${i-1}">${i}</a></li>
+									</c:if>
+									<c:if test="${currentPage!=i-1}">
+										<li class="page-item"><a class="page-link"
+											href="/report/${Name }/${i-1}">${i}</a></li>
+									</c:if>
+								</c:forEach>
+							</c:if>
+							<c:if
+								test="${(totalPages >5 && totalPages>=currentPage) && (currentPage==0 || currentPage==1)}">
+								<c:forEach var="i" begin="1" end="5">
+									<c:if test="${currentPage==i-1}">
+										<li class="page-item active" aria-current="page"><a
+											class="page-link" href="/report/${Name }/${i-1}">${i}</a></li>
+									</c:if>
+									<c:if test="${currentPage!=i-1}">
+										<li class="page-item"><a class="page-link"
+											href="/report/${Name }/${i-1}">${i}</a></li>
+									</c:if>
+								</c:forEach>
+							</c:if>
+							<c:if test="${totalPages <=5}">
+								<c:forEach var="i" begin="1" end="${totalPages}">
+									<c:if test="${currentPage==i-1}">
+										<li class="page-item active" aria-current="page"><a
+											class="page-link" href="/report/${Name }/${i-1}">${i}</a></li>
+									</c:if>
+									<c:if test="${currentPage!=i-1}">
+										<li class="page-item"><a class="page-link"
+											href="/report/${Name }/${i-1}">${i}</a></li>
+									</c:if>
+								</c:forEach>
+							</c:if>
+
+
+
+
 
 							<c:if test="${currentPage+1 != totalPages }">
 
 								<li class="page-item"><a class="page-link"
-									href="/report/${Name}/${currentPage+1}">Next<span>&raquo;</span></a></li>
+									href="/report/${Name}/${totalPages-1}"><span>&raquo;&raquo;&raquo;</span></a></li>
 							</c:if>
 						</ul>
 					</nav>

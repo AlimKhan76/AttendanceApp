@@ -165,7 +165,7 @@ public class LoginController {
 	@RequestMapping(value = "report/{name}/{page}", method = RequestMethod.GET)
 	public String ReportofUser(@PathVariable int page, @PathVariable String name, Model m) {
 		// Finding all the record in the name of the user provided
-		Pageable pageable=PageRequest.of(page,12);
+		Pageable pageable=PageRequest.of(page,5);
 		Page<Record> datalist = recordRepository.findByUnameOrderByLogdateDesc(name, pageable);
 		List<Record> list=datalist.getContent();
 		// Sending the record to the view through Model
