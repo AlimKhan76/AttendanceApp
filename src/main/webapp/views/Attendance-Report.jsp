@@ -39,11 +39,6 @@
 
 					</tbody>
 				</table>
-				<div class="d-flex mt-5 justify-content-center align-items-center">
-
-					<a class="btn btn-info btn-lg" href="/export-to-excel/${Name }">Download
-						Attendance Report of ${Name }</a>
-				</div>
 
 				<div class="container my-3 align-items-center text-center">
 					<nav aria-label="Page navigation example">

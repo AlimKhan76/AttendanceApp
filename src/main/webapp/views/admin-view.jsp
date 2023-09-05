@@ -43,6 +43,9 @@
 										<button class="btn btn-info">View
 											Attendance</button>
 											</a>
+											<a class="btn btn-info" href="/export-to-excel/${p.uname }">Download
+						Attendance Report </a>
+				
 									
 
 								</td>

@@ -32,7 +32,7 @@ public class ExcelController {
         String currentDateTime = dateFormatter.format(new Date());
 
         String headerKey = "Content-Disposition";
-        String headerValue = "attachment; filename=Attendance-Report-of-"+uname +" "+ currentDateTime + ".xlsx";
+        String headerValue = "attachment; filename=Attendance-Report-of-"+uname +" until "+ currentDateTime + ".xlsx";
         response.setHeader(headerKey, headerValue);
 
         List <Record> listOfStudents = recordRepository.findByUnameOrderByLogdateDesc(uname);
